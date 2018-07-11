@@ -31,7 +31,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
   exports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    {provide:"apiUrl",useValue:"http://northwindapi.azurewebsites.net/api"}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
