@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {Http, HttpModule, Response} from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
@@ -24,7 +25,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   exports: [
     BrowserModule
