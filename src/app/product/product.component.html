@@ -1,5 +1,14 @@
 <div>
-  <li *ngFor="let product of products">
-    {{product.productName}}
+  <div  *ngIf="addedProduct" class="alert alert-success">{{addedProduct}} added to cart!</div>
+  <h4 class="page-header">Products</h4>
+  <ul class="list-group">
+  <li *ngFor="let product of products" class="list-group-item">
+    <button (click)="addToCart(product)" class="btn btn-xs btn-primary pull-right">
+        add to cart
+    </button>
+    <h5><strong>{{product.productName}}</strong></h5>
+    <p>{{product.quantityPerUnit}}</p>
+    <h6>{{product.unitPrice}}</h6>
   </li>
+</ul>
 </div>

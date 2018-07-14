@@ -6,7 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'deneme projesi';
+  title = 'Northwind';
+  public options = {
+    clickToClose: true,
+    position: ["bottom", "right"],
+    timeOut: 5000,
+    lastOnBottom: true
+}
 }
 
 /*
