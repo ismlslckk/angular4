@@ -16,7 +16,7 @@ import { ShippingDetailComponent } from './shipping-detail/shipping-detail.compo
 import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
 import { LoggedComponent } from './account/logged/logged.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {CartService} from './cart/cart.service'
+import {CartService} from './cart/cart.service';
 
 @NgModule({
   declarations: [
