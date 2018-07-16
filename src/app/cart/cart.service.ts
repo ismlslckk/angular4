@@ -8,7 +8,6 @@ import { CART_ITEM_LIST } from './cart-item-list'
 })
 export class CartService {
 
-  cartItems: CartItem[];
   constructor() { }
 
   addToCart(product: Product): void {
