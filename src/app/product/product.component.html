@@ -7,7 +7,7 @@
     </button>
     <h5><strong>{{product.productName}}</strong></h5>
     <p>{{product.quantityPerUnit}}</p>
-    <h6>{{product.unitPrice}}</h6>
+    <h6>{{product.unitPrice| currency:'₺':true}}(VAT included:{{product.unitPrice|vatAdded| currency:'₺':true}})</h6>
   </li>
 </ul>
 </div>

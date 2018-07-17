@@ -1,11 +1,13 @@
 <div class="nav-item dropdown pull-right">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-      aria-expanded="false">
-      <i class="fa fa-shopping-cart"></i>:{{totalCartItemPrice | currency:'₺':true}}({{totalCartItem}})
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a  *ngFor="let item of cartItems" class="dropdown-item">{{item.product.productName | uppercase}}({{item.quantity}})</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Go to cart</a>
-    </div>
+    aria-expanded="false">
+    <i class="fa fa-shopping-cart"></i>:{{totalCartItemPrice | currency:'₺':true}}({{totalCartItem}})
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" *ngIf="cartItems?.length ==0">Cart is empty</a>
+    <a *ngFor="let item of cartItems" class="dropdown-item">
+      <i class="btn btn-xs btn-danger fa fa-remove"></i>  {{item.product.productName | uppercase}}({{item.quantity}})</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item text-center" href="#"><strong>Go to cart</strong></a>
+  </div>
 </div>
