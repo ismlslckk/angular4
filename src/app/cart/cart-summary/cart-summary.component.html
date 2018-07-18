@@ -1,7 +1,7 @@
 <div class="nav-item dropdown pull-right">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
     aria-expanded="false">
-    <i class="fa fa-shopping-cart"></i>:{{totalCartItemPrice | currency:'₺':true}}({{totalCartItem}})
+    <i class="fa fa-shopping-cart"></i>:{{totalCartItemPrice | currency}}({{totalCartItem}})
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <a class="dropdown-item" *ngIf="cartItems?.length ==0">Cart is empty</a>

@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {Http, HttpModule, Response} from "@angular/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {enableProdMode} from '@angular/core';
 
+enableProdMode();
 
 import {SimpleNotificationsModule,NotificationsService} from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,7 +41,8 @@ import { ProductFilterPipe } from './product/product-filter.pipe';
     BrowserModule,
     HttpModule,
     SimpleNotificationsModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   exports: [
     BrowserModule
