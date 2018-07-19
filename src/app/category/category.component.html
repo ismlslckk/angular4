@@ -1,3 +1,6 @@
-<p>
-  category works!
-</p>
+<h4 class="page-header text-center">Categories</h4>
+<div class="list-group">
+  <a  href="#" class="list-group-item" *ngFor="let category of categories"> {{category.categoryName}}
+    <i class="fa fa-arrow-right"></i>
+  </a>
+</div>
