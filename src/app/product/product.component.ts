@@ -3,6 +3,7 @@ import {Product} from './product';
 import {ProductService} from './product.service';
 import {NotificationsService} from 'angular2-notifications'
 import {CartService} from 'src/app/cart/cart.service'
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'app-product',
@@ -14,17 +15,19 @@ export class ProductComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private productService: ProductService,
+  constructor(private activatedRoute:ActivatedRoute,private productService: ProductService,
     private notificationsService:NotificationsService,
     private cartService:CartService) {
   }
 
   ngOnInit() {
-    this.getProducts();
+    this.activatedRoute.params.subscribe(params=>{
+      this.getProducts(params["seoUrl"]);
+    })
   }
 
-  getProducts() {
-    this.productService.getProducts().subscribe(p => {this.products = p});
+  getProducts(seoCategory:string) {
+    this.productService.getProducts(seoCategory).subscribe(p => {this.products = p});
   }
 
   addToCart(product:Product){

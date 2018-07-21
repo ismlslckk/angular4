@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {Http, HttpModule, Response} from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {enableProdMode} from '@angular/core';
+import {Routes,RouterModule} from '@angular/router'
 
 enableProdMode();
 
@@ -23,6 +24,22 @@ import {CartService} from './cart/cart.service';
 import { VatAddedPipe } from './product/vat-added.pipe';
 import { ProductFilterPipe } from './product/product-filter.pipe';
 
+const appRoutes:Routes=[
+  {
+    path:"",
+    redirectTo:"products",
+    pathMatch:"full"
+  },
+  {
+    path:"products",
+    component:ProductComponent
+  },
+  {
+    path:"products/:seoUrl",
+    component:ProductComponent
+  }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +59,8 @@ import { ProductFilterPipe } from './product/product-filter.pipe';
     HttpModule,
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [
     BrowserModule
