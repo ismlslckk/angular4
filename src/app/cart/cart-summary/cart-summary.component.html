@@ -1,13 +1,21 @@
-<div class="nav-item dropdown pull-right">
+<div *ngIf="cartItems?.length>0;else cartEmptyContent" class="nav-item dropdown pull-right">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
     aria-expanded="false">
     <i class="fa fa-shopping-cart"></i>:{{totalCartItemPrice | currency}}({{totalCartItem}})
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" *ngIf="cartItems?.length ==0">Cart is empty</a>
     <a *ngFor="let item of cartItems" class="dropdown-item">
-      <i class="btn btn-xs btn-danger fa fa-remove"></i>  {{item.product.productName | uppercase}}({{item.quantity}})</a>
+      <i (click)="removeFromCart(item.product)" class="btn btn-xs btn-danger fa fa-remove"></i>  {{item.product.productName | uppercase}}({{item.quantity}})</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item text-center" href="#"><strong>Go to cart</strong></a>
+    <a routerLink="my-cart" class="dropdown-item text-center" href="#"><strong>Go to cart</strong></a>
   </div>
 </div>
+
+<ng-template #cartEmptyContent>
+    <div class="nav-item dropdown pull-right">
+        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fa fa-shopping-cart"></i> Cart is empty
+        </a>
+      </div>
+</ng-template>

@@ -12,20 +12,11 @@ export class CategoryComponent implements OnInit {
   constructor(private categoryService:CategoryService) { }
 
   categories:Category[];
-  selectedCategory:Category;
   getCategories(){
       this.categoryService.getCategories().subscribe(c=>this.categories=c);
   }
   ngOnInit() {
     this.getCategories();
-  }
-
-  onSelect(category?:Category){
-    if(category){
-        this.selectedCategory=category;
-    }else{
-      this.selectedCategory=null;
-    }
   }
 
 }

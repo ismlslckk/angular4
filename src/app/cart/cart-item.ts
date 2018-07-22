@@ -1,4 +1,4 @@
-import {Product} from 'src/app/product/product'
+import {Product} from '../product/product'
 
 export class CartItem{
     quantity:number;

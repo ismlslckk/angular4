@@ -38,6 +38,11 @@ const appRoutes:Routes=[
     path:"products/:seoUrl",
     component:ProductComponent
   }
+  ,
+  {
+    path:"my-cart",
+    component:CartComponent
+  }
 ];
 
 @NgModule({

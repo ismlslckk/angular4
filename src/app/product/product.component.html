@@ -1,19 +1,39 @@
 <div>
-  <div>
-    <input type="text" class="from-control" placeholder="type something..." [(ngModel)]="filterText">
+  <div *ngIf="isLoadingProducts" style="text-align: center;" id="loading_icon">
+    <img src="../../assets/loading_icon.gif">
   </div>
-  <div *ngIf="filterText">
-    your search for <strong>{{filterText}}</strong>
+  <div  *ngIf="!isLoadingProducts" id="content">
+    <div>
+      <input type="text" class="from-control col-md-12" placeholder="type something..." [(ngModel)]="filterText">
+    </div>
+    <div *ngIf="filterText">
+      your search for
+      <strong>{{filterText}}</strong>
+    </div>
+    <h4 class="page-header">Products</h4>
+    <ul class="list-group">
+      <li *ngFor="let product of products|productFilter:filterText|slice:(pager.currentPage-1)*pager.pageSize:((pager.currentPage-1)*pager.pageSize)+pager.pageSize"
+        class="list-group-item">
+        <button (click)="addToCart(product)" class="btn btn-xs btn-primary pull-right">
+          add to cart
+        </button>
+        <h5>
+          <strong>{{product.productName}}</strong>
+        </h5>
+        <p>{{product.quantityPerUnit}}</p>
+        <h6>{{product.unitPrice| currency}}(VAT included:{{product.unitPrice|vatAdded| currency}})</h6>
+      </li>
+    </ul>
+    <ul class="pagination">
+      <li class="page-item">
+        <button [disabled]="pager.currentPage<=1" class="page-link" (click)="setPage(pager.currentPage-1)">Önceki</button>
+      </li>
+      <li *ngFor="let page of pager.pageList" class="page-item" [class.active]="page===pager.currentPage">
+        <a class="page-link" style="cursor:pointer;" (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li class="page-item">
+        <button [disabled]="pager.currentPage == pager.pageList.length" class="page-link" (click)="setPage(pager.currentPage+1)">Sonraki</button>
+      </li>
+    </ul>
   </div>
-  <h4 class="page-header">Products</h4>
-  <ul class="list-group">
-  <li *ngFor="let product of products|productFilter:filterText" class="list-group-item">
-    <button (click)="addToCart(product)" class="btn btn-xs btn-primary pull-right">
-        add to cart
-    </button>
-    <h5><strong>{{product.productName}}</strong></h5>
-    <p>{{product.quantityPerUnit}}</p>
-    <h6>{{product.unitPrice| currency}}(VAT included:{{product.unitPrice|vatAdded| currency}})</h6>
-  </li>
-</ul>
 </div>
