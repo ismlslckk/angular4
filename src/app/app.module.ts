@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {Http, HttpModule, Response} from "@angular/http";
+import { Http, HttpModule, Response } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {enableProdMode} from '@angular/core';
-import {Routes,RouterModule} from '@angular/router'
+import { enableProdMode } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'
 
 enableProdMode();
 
-import {SimpleNotificationsModule,NotificationsService} from 'angular2-notifications';
+import { SimpleNotificationsModule, NotificationsService } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -20,28 +20,33 @@ import { ShippingDetailComponent } from './shipping-detail/shipping-detail.compo
 import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
 import { LoggedComponent } from './account/logged/logged.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {CartService} from './cart/cart.service';
+import { CartService } from './cart/cart.service';
 import { VatAddedPipe } from './product/vat-added.pipe';
 import { ProductFilterPipe } from './product/product-filter.pipe';
 
-const appRoutes:Routes=[
+const appRoutes: Routes = [
   {
-    path:"",
-    redirectTo:"products",
-    pathMatch:"full"
+    path: "",
+    redirectTo: "products",
+    pathMatch: "full"
   },
   {
-    path:"products",
-    component:ProductComponent
+    path: "products",
+    component: ProductComponent
   },
   {
-    path:"products/:seoUrl",
-    component:ProductComponent
+    path: "products/:seoUrl",
+    component: ProductComponent
   }
   ,
   {
-    path:"my-cart",
-    component:CartComponent
+    path: "my-cart",
+    component: CartComponent
+  }
+  ,
+  {
+    path: "shipping-detail",
+    component: ShippingDetailComponent
   }
 ];
 
@@ -71,7 +76,7 @@ const appRoutes:Routes=[
     BrowserModule
   ],
   providers: [
-    {provide:"apiUrl",useValue:"http://northwindapi.azurewebsites.net/api"},
+    { provide: "apiUrl", useValue: "http://northwindapi.azurewebsites.net/api" },
     NotificationsService,
     CartService
   ],
