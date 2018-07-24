@@ -1,5 +1,7 @@
 <h4 class="page-header">Shipping Details</h4>
 
+
+<!-- #fullName="ngModel"  input ismi-->
 <form #shippingForm="ngForm" (ngSubmit)="checkout(shippingForm)">
   <div class="form-group" [class.has-error]="fullName.invalid&&fullName.dirty">
     <label class="control-label" for="fullName">Full Name</label>
