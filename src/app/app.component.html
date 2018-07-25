@@ -25,7 +25,10 @@
 </nav>
 <div>
   <div class="row">
-    <div class="col-md-2"><app-category></app-category></div>
+    <div class="col-md-2">
+      <app-logged>You are not logged in!</app-logged>
+      <app-category></app-category>
+    </div>
     <div class="col-md-10"><router-outlet></router-outlet></div>
   </div>
   <simple-notifications [options]="options"></simple-notifications>

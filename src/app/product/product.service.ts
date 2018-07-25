@@ -12,7 +12,7 @@ import 'rxjs/add/operator/catch';
 export class ProductService {
 
   constructor(private http: Http,@Inject('apiUrl') private apiUrl) {
-  }
+  } 
 
    getProducts(seoUrl:string ): Observable<Product[]> {
     if(seoUrl){
@@ -24,3 +24,4 @@ export class ProductService {
     }
   }
 }
+ 
