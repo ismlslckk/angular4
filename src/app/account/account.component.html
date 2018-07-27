@@ -14,11 +14,13 @@
                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                     <input type="password" class="form-control" name="password" ngModel placeholder="Password">
                 </div>
-                <p style="color: red;" *ngIf="message">{{message}}</p>
                 <div>
                         <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-log-in"></i>Login</button>
                   </div>
           </form>
+        </div>
+        <div class="panel-footer">
+            {{message}}
         </div>
     </div>
   </div>

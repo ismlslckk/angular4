@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms'
 import {AccountService} from './account.service'
 import {Router,ActivatedRoute} from '@angular/router'
+import { NotificationsService } from '../../../node_modules/angular2-notifications';
 
 @Component({
   selector: 'app-account',
@@ -15,7 +16,8 @@ export class AccountComponent implements OnInit {
 
   constructor(private accountService:AccountService,
               private activatedRoute:ActivatedRoute,
-              private router:Router) { }
+              private router:Router,
+              private notificationsService:NotificationsService) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params=>{
@@ -28,7 +30,8 @@ export class AccountComponent implements OnInit {
         if(t){
             this.router.navigateByUrl(this.returnUrl);
         }else{
-          this.message="Username or Password is incorrect";
+          this.notificationsService.error("Error","Username or Password is incorrect");
+
         }
       }
   );

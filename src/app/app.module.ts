@@ -24,6 +24,7 @@ import { CartService } from './cart/cart.service';
 import{AccountService} from 'src/app/account/account.service'
 import { VatAddedPipe } from './product/vat-added.pipe';
 import { ProductFilterPipe } from './product/product-filter.pipe';
+import { LoginGuard } from './account/login.guard';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
   ,
   {
     path: "shipping-detail",
-    component: ShippingDetailComponent
+    component: ShippingDetailComponent,
+    canActivate:[LoginGuard]
   },
   {
     path: "account",
@@ -84,7 +86,8 @@ const appRoutes: Routes = [
     { provide: "apiUrl", useValue: "http://northwindapi.azurewebsites.net/api" },
     NotificationsService,
     CartService,
-    AccountService
+    AccountService,
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })
