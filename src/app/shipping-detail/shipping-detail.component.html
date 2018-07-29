@@ -5,12 +5,12 @@
 <form #shippingForm="ngForm" (ngSubmit)="checkout(shippingForm)">
   <div class="form-group" [class.has-error]="fullName.invalid&&fullName.dirty">
     <label class="control-label" for="fullName">Full Name</label>
-    <input  #fullName="ngModel" [(ngModel)]="model.fullName" type="text" class="form-control" id="fullName" name="fullName"  required>
+    <input (change)="isDirty=true"  #fullName="ngModel" [(ngModel)]="model.fullName" type="text" class="form-control" id="fullName" name="fullName"  required>
     <span *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="help-block">Full Name is required</span>
   </div>
   <div class="form-group" [class.has-error]="address.invalid&&address.dirty">
     <label class="control-label" for="address">Address</label>
-    <textarea #address="ngModel" type="text" class="form-control" id="address" name="address" [(ngModel)]="model.address" minlength="10"
+    <textarea (change)="isDirty=true" #address="ngModel" type="text" class="form-control" id="address" name="address" [(ngModel)]="model.address" minlength="10"
       required></textarea>
     <span *ngIf="address.invalid && (address.dirty || address.touched)" class="help-block">Address is required and should be min 10 characters
     </span>
